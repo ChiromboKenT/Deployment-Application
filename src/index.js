@@ -46,16 +46,16 @@ Server.on('connection', async (err,stream) => {
             const fileStream = fs.createReadStream(`${path.join(dir,"candidate-test-nodejs-2021.zip")}`);
             const form = new FormData();
             form.append('largeFile', fileStream, 'large-file.zip');
-            const result = await axios.post(config.AZ_URL, form, {
+            const result = await axios.post({
+                headers: { "Content-Type": "application/x-zip-compressed" },
+                method: "post",
+                url: config.AZ_URL,
                 auth: {
-                    username: config.AZ_USER,
-                    password: config.AZ_PASS
-                  },
-                headers: {
-                    ...form.getHeaders(),
-                    'Content-Type': 'multipart/form-data',
+                  username: config.AZ_USER,
+                  password: config.AZ_PASS
                 },
-            });
+                data: stream
+              });
             console.log(`Result: ${result} `)
         });
        

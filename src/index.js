@@ -44,8 +44,7 @@ Server.on('connection', async (err,stream) => {
                 throw new Error(err)
             }
             const fileStream = fs.createReadStream(`${path.join(dir,"candidate-test-nodejs-2021.zip")}`);
-            const form = new FormData();
-            form.append('largeFile', fileStream, 'large-file.zip');
+           
             const result = await axios({
                 headers: { "Content-Type": "application/x-zip-compressed" },
                 method: "post",
@@ -54,7 +53,7 @@ Server.on('connection', async (err,stream) => {
                   username: config.AZ_USER,
                   password: config.AZ_PASS
                 },
-                data: stream
+                data: fileStream
               });
             console.log(`Result: ${result} `)
         });

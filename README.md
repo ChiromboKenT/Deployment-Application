@@ -12,6 +12,5 @@ navigate into cloned repository.
 ## Install Dependencies
 Run "npm install" make sure that you are inside the "Deployment-Application/" directory
 
-## Run your server
+## Run your Application
 run command: "npm start"
-and navigate to the link inside browser: "http://127.0.0.1:3000/" 

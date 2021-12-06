@@ -21,6 +21,8 @@
     "axios": "^0.24.0",
     "dotenv": "^10.0.0",
     "form-data": "^4.0.0",
+    "npm-programmatic": "0.0.12",
+    "request": "^2.88.2",
     "simple-git": "^2.48.0",
     "zip-dir": "^2.0.0"
   }
